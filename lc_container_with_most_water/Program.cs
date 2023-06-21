@@ -1,6 +1,6 @@
 ﻿
-int[] test = { 1, 7, 6, 2, 5, 4, 2, 3, 6 };
-Solution.MaxArea(test);
+int[] test = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
+Console.WriteLine($"Max area = {Solution.MaxArea(test)}");
 
 public class Solution
 {
@@ -32,12 +32,12 @@ public class Solution
             for (int j = 0; j < height.Length; j++)
             // for every other line
             {
-                Console.WriteLine($"Comparing line {highestLines.First()} to line {j}");
-                // get the shorter of the two lines
-                // multiply that value by the difference in the indexes of the two lines
-                //      this is the area
-                // if (area > maxArea)
-                //      maxArea = area;
+                int area = Math.Min(height[highestLines.First()], height[j]) * (Math.Max(highestLines.First(), j) - Math.Min(highestLines.First(), j));
+                Console.WriteLine($"area = {Math.Min(height[highestLines.First()], height[j])} * ({Math.Max(highestLines.First(), j)} - {Math.Min(highestLines.First(), j)}) = {area}");
+                if (area > maxArea)
+                {
+                    maxArea = area;
+                }
             }
             highestLines.Dequeue();
         }
