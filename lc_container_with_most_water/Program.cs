@@ -16,41 +16,9 @@ public class Solution
 {
     static public int MaxArea(int[] height)
     {
-        Queue<int> highestLines = new Queue<int>(); // stores the indexes of all the highest lines
-        highestLines.Enqueue(0); // start with the first line
-        for (int i = 1; i < height.Length; i++)
-        // for each line after the first
-        {
-            if (height[i] > height[highestLines.First()])
-            // if this is the highest line so far
-            {
-                highestLines.Clear();
-                highestLines.Enqueue(i);
-            }
-            else if (height[i] == height[highestLines.First()])
-            // if this is a duplicate highest line
-            {
-                highestLines.Enqueue(i);
-            }
-        }
-
         int maxArea = 0;
-        int numberOfHighestLines = highestLines.Count;
-        for (int i = 0; i < numberOfHighestLines; i++)
-        // for each of the highest lines starting from the left
-        {
-            for (int j = 0; j < height.Length; j++)
-            // for every other line
-            {
-                int area = Math.Min(height[highestLines.First()], height[j]) * (Math.Max(highestLines.First(), j) - Math.Min(highestLines.First(), j));
-                Console.WriteLine($"area = {Math.Min(height[highestLines.First()], height[j])} * ({Math.Max(highestLines.First(), j)} - {Math.Min(highestLines.First(), j)}) = {area}");
-                if (area > maxArea)
-                {
-                    maxArea = area;
-                }
-            }
-            highestLines.Dequeue();
-        }
+
+
 
         return maxArea;
     }
