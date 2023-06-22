@@ -17,11 +17,34 @@ public class Solution
     static public int MaxArea(int[] height)
     {
         int maxArea = 0;
+        int i = 0;
+        int j = height.Length - 1;
 
-        for (int i = 0; i < height.Length; i++)
-        // for each line
+        while (i < j)
         {
+            int area;
 
+            if (height[i] > height[j])
+            {
+                area = height[j] * (j - i);
+                Console.WriteLine($"area = {height[j]} * ({j} - {i}) = {area}");
+                j--;
+                Console.WriteLine($"j-- = {j}");
+            }
+            else
+            {
+                area = height[i] * (j - i);
+                Console.WriteLine($"area = {height[i]} * ({j} - {i}) = {area}");
+                i++;
+                Console.WriteLine($"i++ = {i}");
+            }
+
+            if (area > maxArea)
+            {
+                maxArea = area;
+                Console.WriteLine($"new maxArea = {maxArea}");
+            }
+            Console.WriteLine();
         }
 
         return maxArea;
