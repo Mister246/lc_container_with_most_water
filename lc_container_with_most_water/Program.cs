@@ -27,24 +27,18 @@ public class Solution
             if (height[i] > height[j])
             {
                 area = height[j] * (j - i);
-                Console.WriteLine($"area = {height[j]} * ({j} - {i}) = {area}");
                 j--;
-                Console.WriteLine($"j-- = {j}");
             }
             else
             {
                 area = height[i] * (j - i);
-                Console.WriteLine($"area = {height[i]} * ({j} - {i}) = {area}");
                 i++;
-                Console.WriteLine($"i++ = {i}");
             }
 
             if (area > maxArea)
             {
                 maxArea = area;
-                Console.WriteLine($"new maxArea = {maxArea}");
             }
-            Console.WriteLine();
         }
 
         return maxArea;
