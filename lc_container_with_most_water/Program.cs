@@ -18,7 +18,11 @@ public class Solution
     {
         int maxArea = 0;
 
+        for (int i = 0; i < height.Length; i++)
+        // for each line
+        {
 
+        }
 
         return maxArea;
     }
